@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Politique de confidentialité — Tri auto mails</title>
+<style>
+  :root { --encre:#12233a; --gris:#5b6b7f; --trait:#e2e8ef; --accent:#1f5fbf; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+         color:var(--encre); background:#fff; line-height:1.7; }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 56px 24px 80px; }
+  h1 { font-size:34px; letter-spacing:-.02em; margin:0 0 8px; }
+  .maj { color:var(--gris); font-size:15px; margin:0 0 34px; }
+  h2 { font-size:20px; margin:38px 0 10px; padding-top:6px; }
+  p { margin:0 0 14px; }
+  ul { margin:0 0 16px; padding-left:22px; }
+  li { margin-bottom:8px; }
+  table { width:100%; border-collapse: collapse; margin: 8px 0 20px; font-size:15px; }
+  th, td { text-align:left; vertical-align:top; padding:10px 12px; border-bottom:1px solid var(--trait); }
+  th { background:#f6f8fb; font-weight:600; }
+  .encadre { border-left:3px solid var(--accent); background:#f2f6fc; padding:14px 18px; border-radius:0 10px 10px 0; margin:18px 0; }
+  a { color:var(--accent); }
+  footer { margin-top:48px; padding-top:20px; border-top:1px solid var(--trait); color:var(--gris); font-size:14px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Politique de confidentialité</h1>
+  <p class="maj">Application « Tri auto mails » — dernière mise à jour : octobre 2026</p>
+
+  <p>
+    « Tri auto mails » est une application à usage strictement personnel. Elle n'est pas
+    distribuée, ne compte qu'un seul utilisateur — son auteur — et ne traite que le compte
+    Gmail de celui-ci. La présente politique décrit quelles données Google sont utilisées,
+    dans quel but, combien de temps elles sont conservées et comment retirer l'autorisation.
+  </p>
+
+  <h2>1. Responsable du traitement</h2>
+  <p>
+    Kevin Massat — <a href="mailto:kevin.massat82@gmail.com">kevin.massat82@gmail.com</a><br>
+    Application auto-hébergée sur une instance n8n privée.
+  </p>
+
+  <h2>2. Données Google auxquelles l'application accède</h2>
+  <table>
+    <tr><th>Donnée</th><th>Usage</th></tr>
+    <tr>
+      <td>En-têtes des messages : expéditeur, objet, date, identifiant</td>
+      <td>Déterminer la catégorie du message.</td>
+    </tr>
+    <tr>
+      <td>Extrait du message (les 400 premiers caractères environ)</td>
+      <td>Affiner la catégorisation. Le corps complet n'est ni lu ni conservé.</td>
+    </tr>
+    <tr>
+      <td>Libellés Gmail du compte</td>
+      <td>Lire et modifier les étiquettes appliquées aux messages.</td>
+    </tr>
+    <tr>
+      <td>Autorisation d'envoi d'e-mail</td>
+      <td>Adresser au propriétaire du compte une alerte en cas de panne du traitement.</td>
+    </tr>
+  </table>
+  <p>
+    L'application n'accède ni aux contacts, ni au calendrier, ni aux fichiers Google Drive,
+    ni aux données d'aucun autre compte Google.
+  </p>
+
+  <h2>3. Finalité du traitement</h2>
+  <p>
+    Trier et étiqueter les messages du compte, sortir de la boîte de réception ceux qui ne
+    demandent aucune action, et signaler par e-mail toute interruption de service. Aucun
+    autre usage n'est fait de ces données.
+  </p>
+
+  <h2>4. Partage avec un tiers</h2>
+  <p>
+    Pour certains messages, l'objet, l'expéditeur et un court extrait peuvent être transmis
+    à l'API de <strong>Groq, Inc.</strong> (États-Unis) afin d'obtenir une catégorie.
+    Aucun autre élément n'est transmis : ni le corps complet, ni les pièces jointes, ni les
+    autres messages de la boîte. Ce transfert est nécessaire au fonctionnement du
+    classement automatique ; si l'API est indisponible, le classement repose sur des règles
+    locales et aucun message n'est transmis.
+  </p>
+  <div class="encadre">
+    <strong>Aucune donnée n'est vendue, louée, ni utilisée à des fins publicitaires</strong>
+    ou de profilage commercial. Aucun tiers autre que le prestataire de traitement
+    ci-dessus n'a accès aux données.
+  </div>
+
+  <h2>5. Conservation</h2>
+  <ul>
+    <li><strong>Messages :</strong> aucun message n'est copié ni archivé par l'application. Ils restent dans la boîte Gmail de l'utilisateur.</li>
+    <li><strong>Journaux d'exécution :</strong> l'automatisation conserve localement un journal d'exécution (sujet, expéditeur, catégorie attribuée) pour permettre le contrôle du tri. Ce journal est supprimé au plus tard 30 jours après l'exécution, ou immédiatement sur demande.</li>
+    <li><strong>Jetons d'autorisation :</strong> stockés chiffrés dans l'instance n8n, jusqu'au retrait de l'autorisation.</li>
+  </ul>
+
+  <h2>6. Sécurité</h2>
+  <p>
+    Les échanges avec les API Google et Groq sont chiffrés (HTTPS). L'instance n8n est
+    privée et protégée par authentification. Les jetons d'accès ne sont jamais exposés
+    dans les pages publiques de cette application.
+  </p>
+
+  <h2>7. Vos droits et le retrait de l'autorisation</h2>
+  <p>
+    L'utilisateur peut à tout moment :
+  </p>
+  <ul>
+    <li>révoquer l'accès de l'application à son compte Google depuis
+      <a href="https://myaccount.google.com/permissions" rel="noopener">myaccount.google.com/permissions</a> ;</li>
+    <li>supprimer les identifiants OAuth dans l'instance n8n, ce qui interrompt immédiatement tout traitement ;</li>
+    <li>demander la suppression des journaux d'exécution à l'adresse de contact ci-dessus.</li>
+  </ul>
+  <p>
+    Le retrait de l'autorisation suffit à arrêter définitivement tout accès aux données
+    Gmail : l'application ne dispose d'aucun autre moyen d'accès.
+  </p>
+
+  <h2>8. Utilisation limitée des données Google</h2>
+  <p>
+    L'utilisation par cette application des informations reçues des API Google respecte la
+    <a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noopener">Google API Services User Data Policy</a>,
+    y compris les exigences d'<strong>utilisation limitée</strong> (Limited Use). Les données
+    Google ne sont utilisées que pour fournir les fonctionnalités décrites ci-dessus, ne
+    sont ni transférées ni vendues à des tiers en dehors de ce qui est strictement
+    nécessaire à ce fonctionnement, et ne sont pas utilisées pour de la publicité, du
+    profilage ou la constitution de bases de données.
+  </p>
+
+  <h2>9. Modifications</h2>
+  <p>
+    Toute évolution de cette politique sera publiée sur cette page, avec sa date de mise à
+    jour. L'usage de l'application reste strictement personnel.
+  </p>
+
+  <footer>
+    <a href="./index.html">Retour à la présentation de l'application</a>
+  </footer>
+
+</div>
+</body>
+</html>
